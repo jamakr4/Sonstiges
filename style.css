@@ -23,7 +23,7 @@ header{
 
   #b{
     float: right;
-    width: 5vw; /* 5% der Bildschirmbreite */
+    width: 5vw; 
   margin-top: 10vh ;
   margin-right: 2vw;
 
@@ -31,28 +31,28 @@ header{
 
   @media (max-width: 767px) { /* Wenn die Bildschirmbreite kleiner als 768px ist (Handyansicht) */
     aside {
-        position: fixed; /* Fixiere das Element */
-        bottom: 0; /* Positioniere es am unteren Bildschirmrand */
-        left: 0; /* Positioniere es links */
-        width: 100%; /* Vollständige Bildschirmbreite */
-        background-color: #f8f9fa; /* Hintergrundfarbe */
-        padding: 10px 0; /* Abstand oben und unten */
-        text-align: center; /* Zentrierter Text */
+        position: fixed; 
+        bottom: 0; 
+        left: 0; 
+        width: 100%; 
+        background-color: #f8f9fa; 
+        padding: 10px 0; 
+        text-align: center; 
     }
 }
 
 aside {
   float: right;
-  width: 15vw; /* 20% der Bildschirmbreite */
-  margin-right: 2vw; /* 4% der Bildschirmbreite */
+  width: 15vw; 
+  margin-right: 1vw;
   margin-top: 5vw;
 }
 
 main {
   float: left;
-  width: 80%; /* Anpassen je nach gewünschter Breite */
+  width: 70vw; 
   margin-left: 40px;
-  margin-top: 10px;
+  margin-top: 5%;
   margin-bottom: 60px;
 }
 
@@ -73,6 +73,11 @@ main {
 #b{
 
   display: none;
+}
+
+#heading{
+    text-align: center;
+    font-size: 15px;
 }
 
 /* Ab hier Rechner Styling*/
