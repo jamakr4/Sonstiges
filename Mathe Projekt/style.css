@@ -80,6 +80,15 @@ main {
     font-size: 15px;
 }
 
+.button{
+  font-size:20px; 
+  background-color:rgb(49, 117, 165); 
+  color:rgb(0, 0, 0); 
+  border-radius: 5px
+}
+
+
+
 /* Ab hier Rechner Styling*/
 
 @import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
