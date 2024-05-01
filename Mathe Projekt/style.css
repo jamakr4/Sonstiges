@@ -134,3 +134,52 @@ input:active[type=button] {
     -moz-box-shadow: inset 0px 0px 5px #c1c1c1;
     box-shadow: inset 0px 0px 5px #c1c1c1;
 }
+
+
+
+
+
+/* FlexContainer Styling für Index Seite*/
+.container{
+  display: flex;
+  border: #000000 solid;
+  height: 90vh;
+  flex-direction: auto;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  column-gap: 1em;
+  row-gap: 1em;
+  text-align: center;
+  
+}
+
+.box{
+  width: 150px;
+  height: 150px;
+  border-radius: 15px;
+}
+
+#box1{
+  background-color:red;
+}
+#box2{
+  background-color: pink;
+}
+#box3{
+  background-color: aqua;
+}
+#box4{
+  background-color: green;
+}
+#box5{
+  background-color: yellow;
+}
+#box6{
+  background-color: blue;
+}
+#box7{
+  background-color: violet;
+}
+#box8{
+  background-color: brown;
+}
