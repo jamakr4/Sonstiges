@@ -21,11 +21,20 @@
 
         <form id="distanceForm">
             <label for="m">Steigung (m) der Geraden:</label>
-            <input type="number" id="m" name="m" required><br><br>
+            <span class="parentheses">(</span>
+            <input type="number" id="m" name="m" class = "input" required>
+            <span class="parentheses">)</span>
+            <br><br>
             <label for="c1">y-Achsenabschnitt (c₁) der ersten Geraden:</label>
-            <input type="number" id="c1" name="c1" required><br><br>
+            <span class="parentheses">(</span>
+            <input type="number" id="c1" name="c1" class = "input" required>
+            <span class="parentheses">)</span>
+            <br><br>
             <label for="c2">y-Achsenabschnitt (c₂) der zweiten Geraden:</label>
-            <input type="number" id="c2" name="c2" required><br><br>
+            <span class="parentheses">(</span>
+            <input type="number" id="c2" name="c2" class = "input" required>
+            <span class="parentheses">)</span>
+            <br><br>
             <button type="button" class="AnimationButton" onclick="calculateDistance()">
                 <span class="button__text">Berechnen</span>
             </button>
