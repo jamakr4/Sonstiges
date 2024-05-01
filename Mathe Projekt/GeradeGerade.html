@@ -18,11 +18,35 @@
         <a href="index.html">
             <button class="button">zurück</button>
         </a>
+
+        <form id="distanceForm">
+            <label for="m">Steigung (m) der Geraden:</label>
+            <input type="number" id="m" name="m" required><br><br>
+            <label for="c1">y-Achsenabschnitt (c₁) der ersten Geraden:</label>
+            <input type="number" id="c1" name="c1" required><br><br>
+            <label for="c2">y-Achsenabschnitt (c₂) der zweiten Geraden:</label>
+            <input type="number" id="c2" name="c2" required><br><br>
+            <button type="submit">Berechnen</button>
+        </form>
+
+        <div id="result"></div>
     </main>
-</body>
 
+    <script>
+        document.getElementById("distanceForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            
+            // Werte aus den Formularelementen abrufen
+            var m = parseFloat(document.getElementById("m").value);
+            var c1 = parseFloat(document.getElementById("c1").value);
+            var c2 = parseFloat(document.getElementById("c2").value);
 
-<body>
-    
+            // Abstand berechnen
+            var distance = Math.abs(c2 - c1) / Math.sqrt(1 + Math.pow(m, 2));
+
+            // Ergebnis anzeigen
+            document.getElementById("result").innerHTML = "Der Abstand zwischen den parallelen Geraden beträgt: " + distance.toFixed(2);
+        });
+    </script>
 </body>
 </html>

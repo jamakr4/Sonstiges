@@ -6,23 +6,74 @@
     <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Die Universal Formel</title>
+    <title>Universalformel</title>
 </head>
 
 <header>
-    <h3>Abstand von allem anderen</h3>
+    <h3>Universalformel</h3>
 </header>
 
 <body>
     <main>
         <a href="index.html">
-            <button class="button">zurück</button>
+            <button class="button">Zurück</button>
         </a>
+
+        <form id="distanceForm">
+            <div class="coordinate-container">
+                <label for="normalVector">Einheitsnormalenvektor der Ebene:</label>
+                <div class="coordinate">
+                    <input type="number" id="nx" name="nx" required placeholder="nx">
+                    <input type="number" id="ny" name="ny" required placeholder="ny">
+                    <input type="number" id="nz" name="nz" required placeholder="nz">
+                </div>
+            </div>
+            
+            <div class="coordinate-container">
+                <label for="point1">Punkt P1:</label>
+                <div class="coordinate">
+                    <input type="number" id="x1" name="x1" required placeholder="x1">
+                    <input type="number" id="y1" name="y1" required placeholder="y1">
+                    <input type="number" id="z1" name="z1" required placeholder="z1">
+                </div>
+            </div>
+
+            <div class="coordinate-container">
+                <label for="point2">Punkt P2:</label>
+                <div class="coordinate">
+                    <input type="number" id="x2" name="x2" required placeholder="x2">
+                    <input type="number" id="y2" name="y2" required placeholder="y2">
+                    <input type="number" id="z2" name="z2" required placeholder="z2">
+                </div>
+            </div>
+            
+            <button type="submit">Berechnen</button>
+        </form>
+
+        <div id="result"></div>
     </main>
-</body>
 
+    <script>
+        document.getElementById("distanceForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            
+            // Werte aus den Formularelementen abrufen
+            var nx = parseFloat(document.getElementById("nx").value);
+            var ny = parseFloat(document.getElementById("ny").value);
+            var nz = parseFloat(document.getElementById("nz").value);
+            var x1 = parseFloat(document.getElementById("x1").value);
+            var y1 = parseFloat(document.getElementById("y1").value);
+            var z1 = parseFloat(document.getElementById("z1").value);
+            var x2 = parseFloat(document.getElementById("x2").value);
+            var y2 = parseFloat(document.getElementById("y2").value);
+            var z2 = parseFloat(document.getElementById("z2").value);
 
-<body>
-    
+            // Abstand berechnen
+            var distance = Math.abs(nx * (x1 - x2) + ny * (y1 - y2) + nz * (z1 - z2)) / Math.sqrt(Math.pow(nx, 2) + Math.pow(ny, 2) + Math.pow(nz, 2));
+
+            // Ergebnis anzeigen
+            document.getElementById("result").innerHTML = "Der Abstand zwischen dem Punkt und der Ebene beträgt: " + distance.toFixed(2);
+        });
+    </script>
 </body>
 </html>

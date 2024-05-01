@@ -7,25 +7,92 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Abstand Punkt - Punkt</title>
+    
 </head>
-
 <header>
     <h3>Abstand Zweier Punkte</h3>
 </header>
-
-
 <body>
     <main>
         <a href="index.html">
-            <button class="button">zurück</button>
+            <button class="button">Zurück</button>
         </a>
 
-        <form>
+        <form id="distanceForm" class = "tabelle-style">
+            <div class="coordinate-container">
+                <label for="point1">Punkt 1:</label>
+                <div class="coordinate">
+                    <span class="parentheses">(</span>
+                    <input type="number" id="x1"class = "input" name="x1" required placeholder="x1">
+                    <span class="parentheses">)</span>
+                </div>
+                <div class="coordinate">
+                    <span class="parentheses">(</span>
+                    <input type="number" id="y1"class = "input" name="y1" required placeholder="y1">
+                    <span class="parentheses">)</span>
+                </div>
+                <div class="coordinate">
+                    <span class="parentheses">(</span>
+                    <input type="number" class = "input" id="z1" name="z1" required placeholder="z1">
+                    <span class="parentheses">)</span>
+                </div>
+            </div>
             
+            <div class="coordinate-container">
+                <label for="point2">Punkt 2:</label>
+                <div class="coordinate">
+                    <span class="parentheses">(</span>
+                    <input type="number" class = "input"id="x2" name="x2" required placeholder="x2">
+                    <span class="parentheses">)</span>
+                </div>
+                <div class="coordinate">
+                    <span class="parentheses">(</span>
+                    <input type="number" class = "input"id="y2" name="y2" required placeholder="y2">
+                    <span class="parentheses">)</span>
+                </div>
+                <div class="coordinate">
+                    <span class="parentheses">(</span>
+                    <input type="number"class = "input" id="z2" name="z2" required placeholder="z2">
+                    <span class="parentheses">)</span>
+                </div>
+            </div>
+            
+            <button type="button" class="AnimationButton" onclick="calculateDistance()">
+                <span class="button__text">Berechnen</span>
+            </button>
         </form>
-    
-    
-<!--Formel = Mathsqrt[(q1-p1)^2 + (q2-p2)^2 + (q3-p3)^2]-->
+
+        <div id="result"></div>
     </main>
+
+    <script>
+        function calculateDistance() {
+    var distanceForm = document.getElementById("distanceForm");
+    var button = distanceForm.querySelector(".AnimationButton"); 
+    var resultDiv = document.getElementById("result");
+
+    // Button deaktivieren und Ladeanimation anzeigen
+    button.disabled = true;
+    button.classList.add('AnimationButton--loading');
+
+    // Werte aus den Formularelementen abrufen
+    var x1 = parseFloat(document.getElementById("x1").value);
+    var y1 = parseFloat(document.getElementById("y1").value);
+    var z1 = parseFloat(document.getElementById("z1").value);
+    var x2 = parseFloat(document.getElementById("x2").value);
+    var y2 = parseFloat(document.getElementById("y2").value);
+    var z2 = parseFloat(document.getElementById("z2").value);
+
+    // Abstand berechnen
+    var distance = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2) + Math.pow(z2 - z1, 2));
+
+    // Ergebnis anzeigen
+    setTimeout(function () {
+        resultDiv.innerHTML = "Der Abstand zwischen den beiden Punkten beträgt: " + distance.toFixed(2);
+        button.disabled = false;
+        button.classList.remove('AnimationButton--loading'); 
+    }, 1000);
+}
+    </script>
 </body>
 </html>
