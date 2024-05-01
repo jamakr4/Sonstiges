@@ -44,7 +44,7 @@ header{
 aside {
   float: right;
   width: 15vw; 
-  margin-right: 1vw;
+  margin-right: 2vw;
   margin-top: 11vw;
 }
 
@@ -81,11 +81,13 @@ main {
 }
 
 .button{
+  margin-top: 3em;
   font-size:20px; 
   background-color:rgb(49, 117, 165); 
   color:rgb(0, 0, 0); 
   border-radius: 5px
 }
+
 
 
 
@@ -147,8 +149,8 @@ input:active[type=button] {
   flex-direction: auto;
   flex-wrap: wrap;
   align-content: flex-start;
-  column-gap: 1em;
-  row-gap: 1em;
+  column-gap: 1.5em;
+  row-gap: 1.5em;
   text-align: center;
   
 }
