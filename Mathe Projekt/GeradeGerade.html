@@ -26,16 +26,25 @@
             <input type="number" id="c1" name="c1" required><br><br>
             <label for="c2">y-Achsenabschnitt (c₂) der zweiten Geraden:</label>
             <input type="number" id="c2" name="c2" required><br><br>
-            <button type="submit">Berechnen</button>
+            <button type="button" class="AnimationButton" onclick="calculateDistance()">
+                <span class="button__text">Berechnen</span>
+            </button>
         </form>
 
         <div id="result"></div>
     </main>
 
     <script>
-        document.getElementById("distanceForm").addEventListener("submit", function(event) {
-            event.preventDefault();
-            
+        function calculateDistance() {
+            var distanceForm = document.getElementById("distanceForm");
+            var button = distanceForm.querySelector(".AnimationButton"); 
+            var resultDiv = document.getElementById("result");
+
+            // Button deaktivieren und Ladeanimation anzeigen
+            button.disabled = true;
+          
+            button.classList.add('AnimationButton--loading');
+
             // Werte aus den Formularelementen abrufen
             var m = parseFloat(document.getElementById("m").value);
             var c1 = parseFloat(document.getElementById("c1").value);
@@ -45,8 +54,15 @@
             var distance = Math.abs(c2 - c1) / Math.sqrt(1 + Math.pow(m, 2));
 
             // Ergebnis anzeigen
-            document.getElementById("result").innerHTML = "Der Abstand zwischen den parallelen Geraden beträgt: " + distance.toFixed(2);
-        });
+            resultDiv.innerHTML = "Der Abstand zwischen den parallelen Geraden beträgt: " + distance.toFixed(2);
+
+            // Button wieder aktivieren und Ladeanimation entfernen
+            setTimeout(function () {
+                button.disabled = false;
+              
+                button.classList.remove('AnimationButton--loading'); 
+            }, 1000);
+        }
     </script>
 </body>
 </html>
