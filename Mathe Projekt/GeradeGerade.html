@@ -19,22 +19,22 @@
             <button class="button">zurück</button>
         </a>
 
-        <form id="distanceForm" class="tabelle-style">
+        <form id="distanceForm" class = "tabelle-style">
             <div class="coordinate-container">
-                <label for="point1">Richtungsvektor:</label>
+                <label for="point1">Richtungsvektor 1:</label>
                 <div class="coordinate">
                     <span class="parentheses">(</span>
-                    <input type="number" id="nx"class = "input" name="x1" required placeholder="nx">
+                    <input type="number" id="a1"class = "input" name="x1" required placeholder="x1">
                     <span class="parentheses">)</span>
                 </div>
                 <div class="coordinate">
                     <span class="parentheses">(</span>
-                    <input type="number" id="ny"class = "input" name="y1" required placeholder="ny">
+                    <input type="number" id="b1"class = "input" name="y1" required placeholder="y1">
                     <span class="parentheses">)</span>
                 </div>
                 <div class="coordinate">
                     <span class="parentheses">(</span>
-                    <input type="number" class = "input" id="nz" name="z1" required placeholder="nz">
+                    <input type="number" class = "input" id="c1" name="z1" required placeholder="z1">
                     <span class="parentheses">)</span>
                 </div>
             </div>
@@ -43,21 +43,39 @@
                 <label for="point2">Punkt auf Gerade 1:</label>
                 <div class="coordinate">
                     <span class="parentheses">(</span>
-                    <input type="number" class = "input"id="x1" name="x2" required placeholder="x1">
+                    <input type="number" class = "input"id="x1" name="x2" required placeholder="x2">
                     <span class="parentheses">)</span>
                 </div>
                 <div class="coordinate">
                     <span class="parentheses">(</span>
-                    <input type="number" class = "input"id="y1" name="y2" required placeholder="y1">
+                    <input type="number" class = "input"id="y1" name="y2" required placeholder="y2">
                     <span class="parentheses">)</span>
                 </div>
                 <div class="coordinate">
                     <span class="parentheses">(</span>
-                    <input type="number"class = "input" id="z1" name="z2" required placeholder="z1">
+                    <input type="number"class = "input" id="z1" name="z2" required placeholder="z2">
                     <span class="parentheses">)</span>
                 </div>
             </div>
-
+            <div class="coordinate-container">
+                <label for="point1">Richtungsvektor 2:</label>
+                <div class="coordinate">
+                    <span class="parentheses">(</span>
+                    <input type="number" id="a2"class = "input" name="x1" required placeholder="x1">
+                    <span class="parentheses">)</span>
+                </div>
+                <div class="coordinate">
+                    <span class="parentheses">(</span>
+                    <input type="number" id="b2"class = "input" name="y1" required placeholder="y1">
+                    <span class="parentheses">)</span>
+                </div>
+                <div class="coordinate">
+                    <span class="parentheses">(</span>
+                    <input type="number" class = "input" id="c2" name="z1" required placeholder="z1">
+                    <span class="parentheses">)</span>
+                </div>
+            </div>
+            
             <div class="coordinate-container">
                 <label for="point2">Punkt auf Gerade 2:</label>
                 <div class="coordinate">
@@ -76,14 +94,16 @@
                     <span class="parentheses">)</span>
                 </div>
             </div>
-            <br></br>
+            
             <button type="button" class="AnimationButton" onclick="calculateDistance()">
                 <span class="button__text">Berechnen</span>
             </button>
-            
         </form>
+      
+        
+        
 
-        <div id="result"></div>
+    <div id="result"></div>
     </main>
     <div id="aside" class="aside">
       <aside> <!--Seitenleiste-->
@@ -164,4 +184,7 @@
         }
     </script>
 </body>
+<footer>
+    <a href="credits.html">Credits</a>
+</footer>
 </html>

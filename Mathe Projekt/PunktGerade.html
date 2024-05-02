@@ -6,17 +6,19 @@
     <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abstand Punkt - Punkt</title>
-    
+    <title>Abstand Punkt - Gerade</title>
 </head>
-<header>
-    <h3>Abstand Zweier Punkte</h3>
-</header>
 <body>
+    <header>
+        <h3>Abstand Punkt - Gerade</h3>
+    </header>
+
     <main>
         <a href="index.html">
-            <button class="button">Zurück</button>
+            <button class="button">zurück</button>
         </a>
+
+
 
         <form id="distanceForm" class = "tabelle-style">
             <div class="coordinate-container">
@@ -37,9 +39,9 @@
                     <span class="parentheses">)</span>
                 </div>
             </div>
-            
+            <br>
             <div class="coordinate-container">
-                <label for="point2">Punkt 2:</label>
+                <label for="point2">Stützvektor</label>
                 <div class="coordinate">
                     <span class="parentheses">(</span>
                     <input type="number" class = "input"id="x2" name="x2" required placeholder="x2">
@@ -56,11 +58,30 @@
                     <span class="parentheses">)</span>
                 </div>
             </div>
+
+            <div class="coordinate-container">
+                <label for="point2">Richtungsvektor:</label>
+                <div class="coordinate">
+                    <span class="parentheses">(</span>
+                    <input type="number" class = "input"id="x3" name="x3" required placeholder="x3">
+                    <span class="parentheses">)</span>
+                </div>
+                <div class="coordinate">
+                    <span class="parentheses">(</span>
+                    <input type="number" class = "input"id="y3" name="y3" required placeholder="y3">
+                    <span class="parentheses">)</span>
+                </div>
+                <div class="coordinate">
+                    <span class="parentheses">(</span>
+                    <input type="number"class = "input" id="z3" name="z3" required placeholder="z3">
+                    <span class="parentheses">)</span>
+                </div>
+            </div>
             
             <button type="button" class="AnimationButton" onclick="calculateDistance()">
                 <span class="button__text">Berechnen</span>
             </button>
-
+            
             <button type="reset" class="AnimationButton">
                 <span class="button__text">Reset</span>
             </button>
@@ -111,35 +132,7 @@
       </div>
       <button type="button" id="b" class="btn btn-primary" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;" onclick="fadeInAside()"> ← </button>
 
-    <script>
-        function calculateDistance() {
-    var distanceForm = document.getElementById("distanceForm");
-    var button = distanceForm.querySelector(".AnimationButton"); 
-    var resultDiv = document.getElementById("result");
 
-    // Button deaktivieren und Ladeanimation anzeigen
-    button.disabled = true;
-    button.classList.add('AnimationButton--loading');
-
-    // Werte aus den Formularelementen abrufen
-    var x1 = parseFloat(document.getElementById("x1").value);
-    var y1 = parseFloat(document.getElementById("y1").value);
-    var z1 = parseFloat(document.getElementById("z1").value);
-    var x2 = parseFloat(document.getElementById("x2").value);
-    var y2 = parseFloat(document.getElementById("y2").value);
-    var z2 = parseFloat(document.getElementById("z2").value);
-
-    // Abstand berechnen
-    var distance = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2) + Math.pow(z2 - z1, 2));
-
-    // Ergebnis anzeigen
-    setTimeout(function () {
-        resultDiv.innerHTML = "Der Abstand zwischen den beiden Punkten beträgt: " + distance.toFixed(2);
-        button.disabled = false;
-        button.classList.remove('AnimationButton--loading'); 
-    }, 1000);
-}
-    </script>
 </body>
 <footer>
     <a href="credits.html">Credits</a>

@@ -272,9 +272,15 @@ input:active[type=button] {
             
         }
 
-        .input {
-            width: 40px;
-        }
+      .input::-webkit-inner-spin-button,   /* Entfernt die Buttons bei den inputs*/
+      input::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+       margin: 0;
+       }
+      .input {
+       width: 40px;
+       padding-right: 20px;
+}
 
         .button {
             margin-bottom: 40px;
