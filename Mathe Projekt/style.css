@@ -146,6 +146,7 @@ input:active[type=button] {
   display: flex;
   border: #000000 ;
   height:74vh;
+  width: 75vw;
   flex-direction: auto;
   flex-wrap: wrap;
   align-content: flex-start;
@@ -159,35 +160,25 @@ input:active[type=button] {
   width: 320px;
   height: 180px;
   border-radius: 15px;
+  text-align: center;
+  background-color: #f0f0f0;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-#box1{
-  background-color:red;
-}
-#box2{
-  background-color: pink;
-}
-#box3{
-  background-color: aqua;
-}
-#box4{
-  background-color: green;
-}
-#box5{
-  background-color: yellow;
-}
-#box6{
-  background-color: blue;
-}
-#box7{
-  background-color: violet;
-}
-#box8{
-  background-color: brown;
+.image-container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 10px;
 }
 
-
-
+.image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+}
 
 /* Animation und Style für Berechnungsbutton*/
 
