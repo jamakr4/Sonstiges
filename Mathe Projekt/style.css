@@ -83,7 +83,7 @@ main {
 .button{
   margin-top: 3em;
   font-size:20px; 
-  background-color:rgb(49, 117, 165); 
+  background-color:#007a63; 
   color:rgb(0, 0, 0); 
   border-radius: 5px
 }
@@ -144,7 +144,7 @@ input:active[type=button] {
 /* FlexContainer Styling für Index Seite*/
 .container{
   display: flex;
-  border: #000000 solid;
+  border: #000000 ;
   height:74vh;
   flex-direction: auto;
   flex-wrap: wrap;
@@ -284,4 +284,3 @@ input:active[type=button] {
             font-size: 20px;
             line-height: 40px;
         }
-       
