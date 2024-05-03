@@ -154,17 +154,21 @@
             var y3 = parseFloat(document.getElementById("ay3").value);
             var z3 = parseFloat(document.getElementById("az3").value);
 
+            //Vektor - Vektor = Zwischen Ergebnis #1
             var resx = x1 - x2;
             var resy = y1 - y2;
             var resz = z1 - z2;
 
+            //Kreuzprodukt = Zwischen Ergebnis #2
             var resultx = (resy * z3) - (resz * y3);
             var resulty = (resz * x3) - (resx * z3);
             var resultz = (resx * y3) - (resy * x3);
 
+            //Länge berechnen = Zwischen Ergebnis #3 & #4
             var length1 = Math.sqrt(Math.pow(resultx, 2) + Math.pow(resulty, 2) + Math.pow(resultz, 2));
             var length2 = Math.sqrt(Math.pow(x3, 2) + Math.pow(y3, 2) + Math.pow(z3, 2));
 
+            //Länge/Länge = Finales Ergebnis
             res = length1/length2;
     
             setTimeout(function () {
@@ -173,6 +177,9 @@
                 button.classList.remove('AnimationButton--loading'); 
             }, 1000);
         }
+
+        // (Punkt-RV)kreuzprodukt mit parameterpunkt der Geraden = a
+        //Länge a / Länge parameterpunkt der Gerade = Abstand
     </script>
     
 </body>
