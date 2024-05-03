@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src="scripts.js"></script>
+    
     <link rel="icon" type="image/x-icon" href="/media/favicon.png">
     <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
@@ -22,39 +22,41 @@
 
         <form id="distanceForm" class = "tabelle-style">
             <div class="coordinate-container">
-                <label for="point1">Punkt 1:</label>
+                <label for="point1">Punkt:</label>
                 <div class="coordinate">
                     <span class="parentheses">(</span>
-                    <input type="number" id="x1"class = "input" name="x1" required placeholder="x1">
+                    <input type="number" id="ax1"class = "input" name="ax1" required placeholder="x1">
                     <span class="parentheses">)</span>
                 </div>
                 <div class="coordinate">
                     <span class="parentheses">(</span>
-                    <input type="number" id="y1"class = "input" name="y1" required placeholder="y1">
+                    <input type="number" id="ay1"class = "input" name="ay1" required placeholder="y1">
                     <span class="parentheses">)</span>
                 </div>
                 <div class="coordinate">
                     <span class="parentheses">(</span>
-                    <input type="number" class = "input" id="z1" name="z1" required placeholder="z1">
+                    <input type="number" class = "input" id="az1" name="az1" required placeholder="z1">
                     <span class="parentheses">)</span>
                 </div>
             </div>
+
             <br>
+
             <div class="coordinate-container">
-                <label for="point2">Stützvektor</label>
+                <label for="point2">Stützvektor:</label>
                 <div class="coordinate">
                     <span class="parentheses">(</span>
-                    <input type="number" class = "input"id="x2" name="x2" required placeholder="x2">
+                    <input type="number" class = "input"id="ax2" name="ax2" required placeholder="x2">
                     <span class="parentheses">)</span>
                 </div>
                 <div class="coordinate">
                     <span class="parentheses">(</span>
-                    <input type="number" class = "input"id="y2" name="y2" required placeholder="y2">
+                    <input type="number" class = "input"id="ay2" name="ay2" required placeholder="y2">
                     <span class="parentheses">)</span>
                 </div>
                 <div class="coordinate">
                     <span class="parentheses">(</span>
-                    <input type="number"class = "input" id="z2" name="z2" required placeholder="z2">
+                    <input type="number"class = "input" id="az2" name="az2" required placeholder="z2">
                     <span class="parentheses">)</span>
                 </div>
             </div>
@@ -63,22 +65,22 @@
                 <label for="point2">Richtungsvektor:</label>
                 <div class="coordinate">
                     <span class="parentheses">(</span>
-                    <input type="number" class = "input"id="x3" name="x3" required placeholder="x3">
+                    <input type="number" class = "input"id="ax3" name="ax3" required placeholder="x3">
                     <span class="parentheses">)</span>
                 </div>
                 <div class="coordinate">
                     <span class="parentheses">(</span>
-                    <input type="number" class = "input"id="y3" name="y3" required placeholder="y3">
+                    <input type="number" class = "input"id="ay3" name="ay3" required placeholder="y3">
                     <span class="parentheses">)</span>
                 </div>
                 <div class="coordinate">
                     <span class="parentheses">(</span>
-                    <input type="number"class = "input" id="z3" name="z3" required placeholder="z3">
+                    <input type="number"class = "input" id="az3" name="az3" required placeholder="z3">
                     <span class="parentheses">)</span>
                 </div>
             </div>
             
-            <button type="button" class="AnimationButton" onclick="calculateDistance()">
+            <button type="button" class="AnimationButton" onclick="calculateDistance1()">
                 <span class="button__text">Berechnen</span>
             </button>
             
@@ -88,7 +90,8 @@
             
         </form>
 
-        <div id="result"></div>
+        <div id="result1"></div>
+
     </main>
 
     <div id="aside" class="aside">
@@ -132,7 +135,46 @@
       </div>
       <button type="button" id="b" class="btn btn-primary" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;" onclick="fadeInAside()"> ← </button>
 
+      <script>
+        function calculateDistance1() {
+            
+            var x1 = parseFloat(document.getElementById("ax1").value);
+            var y1 = parseFloat(document.getElementById("ay1").value);
+            var z1 = parseFloat(document.getElementById("az1").value);
+    
+            var button = document.querySelector('.AnimationButton');
+            button.disabled = true;
+            button.classList.add('AnimationButton--loading');
+    
+            var x2 = parseFloat(document.getElementById("ax2").value);
+            var y2 = parseFloat(document.getElementById("ay2").value);
+            var z2 = parseFloat(document.getElementById("az2").value);
+    
+            var x3 = parseFloat(document.getElementById("ax3").value);
+            var y3 = parseFloat(document.getElementById("ay3").value);
+            var z3 = parseFloat(document.getElementById("az3").value);
 
+            var resx = x1 - x2;
+            var resy = y1 - y2;
+            var resz = z1 - z2;
+
+            var resultx = (resy * z3) - (resz * y3);
+            var resulty = (resz * x3) - (resx * z3);
+            var resultz = (resx * y3) - (resy * x3);
+
+            var length1 = Math.sqrt(Math.pow(resultx, 2) + Math.pow(resulty, 2) + Math.pow(resultz, 2));
+            var length2 = Math.sqrt(Math.pow(x3, 2) + Math.pow(y3, 2) + Math.pow(z3, 2));
+
+            res = length1/length2;
+    
+            setTimeout(function () {
+                document.getElementById("result1").innerHTML = "Der Abstand zwischen Punkt und Gerade beträgt: " + res.toFixed(2);
+                button.disabled = false;
+                button.classList.remove('AnimationButton--loading'); 
+            }, 1000);
+        }
+    </script>
+    
 </body>
 <footer>
     <a href="credits.html">Credits</a>
