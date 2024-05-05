@@ -9,58 +9,182 @@
     <title>Abstand Ebene - Ebene</title>
 </head>
 <body>
-<header>
-    <h3>Abstand Ebene - Ebene</h3>
-</header>
-
-<main>
-    <a href="index.html">
-        <button class="button">zurück</button>
-    </a>
-
+    <header>
+        <h3>Abstand Ebene - Ebene</h3>
+    </header>
     
-</main>
+    <main>
+        <a href="index.html">
+            <button class="button">zurück</button>
+        </a>
 
-<div id="aside" class="aside">
-    <aside> <!--Seitenleiste-->
-      <button type="button" class="btn btn-primary" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;" onclick="fadeOutAside()"> ← </button>
-      
-      <br><br>
+        <form id="distanceForm" class = "tabelle-style">
+            <div class="coordinate-container">
+                <label for="point1">Normalenvektor 1:</label>
+                <div class="coordinate">
+                    <span class="parentheses">(</span>
+                    <input type="number" id="nx"class = "input" name="x1" required placeholder="x1">
+                    <span class="parentheses">)</span>
+                </div>
+                <div class="coordinate">
+                    <span class="parentheses">(</span>
+                    <input type="number" id="ny"class = "input" name="y1" required placeholder="y1">
+                    <span class="parentheses">)</span>
+                </div>
+                <div class="coordinate">
+                    <span class="parentheses">(</span>
+                    <input type="number" class = "input" id="nz" name="z1" required placeholder="z1">
+                    <span class="parentheses">)</span>
+                </div>
+            </div>
+            <div class="coordinate-container">
+                <label for="point2">Punkt auf Ebene 1:</label>
+                <div class="coordinate">
+                    <span class="parentheses">(</span>
+                    <input type="number" class = "input"id="x1" name="x2" required placeholder="x2">
+                    <span class="parentheses">)</span>
+                </div>
+                <div class="coordinate">
+                    <span class="parentheses">(</span>
+                    <input type="number" class = "input"id="y1" name="y2" required placeholder="y2">
+                    <span class="parentheses">)</span>
+                </div>
+                <div class="coordinate">
+                    <span class="parentheses">(</span>
+                    <input type="number"class = "input" id="z1" name="z2" required placeholder="z2">
+                    <span class="parentheses">)</span>
+                </div>
+            </div>
 
-      <table class="calculator" >
-        <tr>
-          <td colspan="3"> <input class="display-box" type="text" id="result" disabled /> </td>
-          <td> <input type="button" value="C" onclick="clearScreen()" id="btn" /> </td>
-        </tr>
-        <tr>
-          <td> <input type="button" value="1" onclick="display('1')" /> </td>
-          <td> <input type="button" value="2" onclick="display('2')" /> </td>
-          <td> <input type="button" value="3" onclick="display('3')" /> </td>
-          <td> <input type="button" value="/" onclick="display('/')" /> </td>
-        </tr>
-        <tr>
-          <td> <input type="button" value="4" onclick="display('4')" /> </td>
-          <td> <input type="button" value="5" onclick="display('5')" /> </td>
-          <td> <input type="button" value="6" onclick="display('6')" /> </td>
-          <td> <input type="button" value="-" onclick="display('-')" /> </td>
-        </tr>
-        <tr>
-          <td> <input type="button" value="7" onclick="display('7')" /> </td>
-          <td> <input type="button" value="8" onclick="display('8')" /> </td>
-          <td> <input type="button" value="9" onclick="display('9')" /> </td>
-          <td> <input type="button" value="+" onclick="display('+')" /> </td>
-        </tr>
-        <tr>
-          <td> <input type="button" value="." onclick="display('.')" /> </td>
-          <td> <input type="button" value="0" onclick="display('0')" /> </td>
-          <td> <input type="button" value="=" onclick="calculate()" id="btn" /> </td>
-          <td> <input type="button" value="*" onclick="display('*')" /> </td>
-        </tr>
-      </table>
-     
-    </aside>
-  </div>
-  <button type="button" id="b" class="btn btn-primary" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;" onclick="fadeInAside()"> ← </button>
+            <div class="coordinate-container">
+              <label for="point2">Normalenvektor 2:</label>
+              <div class="coordinate">
+                  <span class="parentheses">(</span>
+                  <input type="number" class = "input"id="nx1" name="x2" required placeholder="x2">
+                  <span class="parentheses">)</span>
+              </div>
+              <div class="coordinate">
+                  <span class="parentheses">(</span>
+                  <input type="number" class = "input"id="ny1" name="y2" required placeholder="y2">
+                  <span class="parentheses">)</span>
+              </div>
+              <div class="coordinate">
+                  <span class="parentheses">(</span>
+                  <input type="number"class = "input" id="nz1" name="z2" required placeholder="z2">
+                  <span class="parentheses">)</span>
+              </div>
+          </div>
+          <div class="coordinate-container">
+            <label for="point2">Punkt auf Ebene 2:</label>
+            <div class="coordinate">
+                <span class="parentheses">(</span>
+                <input type="number" class = "input"id="x2" name="x2" required placeholder="x2">
+                <span class="parentheses">)</span>
+            </div>
+            <div class="coordinate">
+                <span class="parentheses">(</span>
+                <input type="number" class = "input"id="y2" name="y2" required placeholder="y2">
+                <span class="parentheses">)</span>
+            </div>
+            <div class="coordinate">
+                <span class="parentheses">(</span>
+                <input type="number"class = "input" id="z2" name="z2" required placeholder="z2">
+                <span class="parentheses">)</span>
+            </div>
+        </div>
+
+            <button type="button" class="AnimationButton" onclick="calculateDistance()">
+              <span class="button__text">Berechnen</span>
+          </button>
+
+          <button type="reset" class="AnimationButton">
+              <span class="button__text">Reset</span>
+          </button>
+
+            </form>
+
+        <div id="result"></div>
+    </main>
+
+    <div id="aside" class="aside">
+        <aside> <!--Seitenleiste-->
+          <button type="button" class="btn btn-primary" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;" onclick="fadeOutAside()"> ← </button>
+          
+          <br><br>
+    
+          <table class="calculator" >
+            <tr>
+              <td colspan="3"> <input class="display-box" type="text" id="result" disabled /> </td>
+              <td> <input type="button" value="C" onclick="clearScreen()" id="btn" /> </td>
+            </tr>
+            <tr>
+              <td> <input type="button" value="1" onclick="display('1')" /> </td>
+              <td> <input type="button" value="2" onclick="display('2')" /> </td>
+              <td> <input type="button" value="3" onclick="display('3')" /> </td>
+              <td> <input type="button" value="/" onclick="display('/')" /> </td>
+            </tr>
+            <tr>
+              <td> <input type="button" value="4" onclick="display('4')" /> </td>
+              <td> <input type="button" value="5" onclick="display('5')" /> </td>
+              <td> <input type="button" value="6" onclick="display('6')" /> </td>
+              <td> <input type="button" value="-" onclick="display('-')" /> </td>
+            </tr>
+            <tr>
+              <td> <input type="button" value="7" onclick="display('7')" /> </td>
+              <td> <input type="button" value="8" onclick="display('8')" /> </td>
+              <td> <input type="button" value="9" onclick="display('9')" /> </td>
+              <td> <input type="button" value="+" onclick="display('+')" /> </td>
+            </tr>
+            <tr>
+              <td> <input type="button" value="." onclick="display('.')" /> </td>
+              <td> <input type="button" value="0" onclick="display('0')" /> </td>
+              <td> <input type="button" value="=" onclick="calculate()" id="btn" /> </td>
+              <td> <input type="button" value="*" onclick="display('*')" /> </td>
+            </tr>
+          </table>
+         
+        </aside>
+      </div>
+      <button type="button" id="b" class="btn btn-primary" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;" onclick="fadeInAside()"> ← </button>
+
+      <script>
+        function calculateDistance() {
+            var distanceForm = document.getElementById("distanceForm");
+            var button = distanceForm.querySelector(".AnimationButton"); 
+            var resultDiv = document.getElementById("result");
+
+            // Button deaktivieren und Ladeanimation anzeigen
+            button.disabled = true;
+            button.classList.add('AnimationButton--loading');
+
+            // Werte aus den Formularelementen abrufen
+     var a1 = parseFloat(document.getElementById("nx").value);
+    var b1 = parseFloat(document.getElementById("ny").value);
+    var c1 = parseFloat(document.getElementById("nz").value);
+    var x1 = parseFloat(document.getElementById("x1").value);
+    var y1 = parseFloat(document.getElementById("y1").value);
+    var z1 = parseFloat(document.getElementById("z1").value);
+    var a2 = parseFloat(document.getElementById("nx1").value);
+    var b2 = parseFloat(document.getElementById("ny1").value);
+    var c2 = parseFloat(document.getElementById("nz1").value);
+    var x2 = parseFloat(document.getElementById("x2").value);
+    var y2 = parseFloat(document.getElementById("y2").value);
+    var z2 = parseFloat(document.getElementById("z2").value);
+
+    // Abstand berechnen
+    var numerator = Math.abs(a1 * x1 + b1 * y1 + c1 * z1 - a2 * x2 - b2 * y2 - c2 * z2);
+    var denominator = Math.sqrt(a1 * a1 + b1 * b1 + c1 * c1);
+    var distance = numerator / denominator;
+
+            // Ergebnis anzeigen
+            setTimeout(function () {
+                resultDiv.innerHTML = "Der Abstand zwischen der Ebene und der Geraden beträgt: " + distance.toFixed(2);
+                button.disabled = false;
+                button.classList.remove('AnimationButton--loading'); 
+            }, 1000);
+}
+    </script>
+
 
 </body>
 <footer>

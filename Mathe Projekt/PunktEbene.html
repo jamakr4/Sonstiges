@@ -6,17 +6,86 @@
     <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abstand Punkt - Ebene</title>
+    <title>Abstand Ebene - Punkt</title>
 </head>
 <body>
     <header>
-        <h3>Abstand Punkt - Ebene</h3>
+        <h3>Abstand Ebene - Punkt</h3>
     </header>
-
+    
     <main>
         <a href="index.html">
             <button class="button">zurück</button>
         </a>
+
+        <form id="distanceForm" class = "tabelle-style">
+            <div class="coordinate-container">
+                <label for="point1">Normalenvektor Ebene:</label>
+                <div class="coordinate">
+                    <span class="parentheses">(</span>
+                    <input type="number" id="nx"class = "input" name="x1" required placeholder="x1">
+                    <span class="parentheses">)</span>
+                </div>
+                <div class="coordinate">
+                    <span class="parentheses">(</span>
+                    <input type="number" id="ny"class = "input" name="y1" required placeholder="y1">
+                    <span class="parentheses">)</span>
+                </div>
+                <div class="coordinate">
+                    <span class="parentheses">(</span>
+                    <input type="number" class = "input" id="nz" name="z1" required placeholder="z1">
+                    <span class="parentheses">)</span>
+                </div>
+            </div>
+            <div class="coordinate-container">
+                <label for="point2">Punkt auf Ebene:</label>
+                <div class="coordinate">
+                    <span class="parentheses">(</span>
+                    <input type="number" class = "input"id="x1" name="x2" required placeholder="x2">
+                    <span class="parentheses">)</span>
+                </div>
+                <div class="coordinate">
+                    <span class="parentheses">(</span>
+                    <input type="number" class = "input"id="y1" name="y2" required placeholder="y2">
+                    <span class="parentheses">)</span>
+                </div>
+                <div class="coordinate">
+                    <span class="parentheses">(</span>
+                    <input type="number"class = "input" id="z1" name="z2" required placeholder="z2">
+                    <span class="parentheses">)</span>
+                </div>
+            </div>
+
+            <div class="coordinate-container">
+              <label for="point2">Punkt:</label>
+              <div class="coordinate">
+                  <span class="parentheses">(</span>
+                  <input type="number" class = "input"id="x2" name="x2" required placeholder="x2">
+                  <span class="parentheses">)</span>
+              </div>
+              <div class="coordinate">
+                  <span class="parentheses">(</span>
+                  <input type="number" class = "input"id="y2" name="y2" required placeholder="y2">
+                  <span class="parentheses">)</span>
+              </div>
+              <div class="coordinate">
+                  <span class="parentheses">(</span>
+                  <input type="number"class = "input" id="z2" name="z2" required placeholder="z2">
+                  <span class="parentheses">)</span>
+              </div>
+          </div>
+          <br></br>
+            <button type="button" class="AnimationButton" onclick="calculateDistance()">
+              <span class="button__text">Berechnen</span>
+          </button>
+
+          <button type="reset" class="AnimationButton">
+              <span class="button__text">Reset</span>
+          </button>
+
+            </form>
+
+        <div id="result"></div>
     </main>
 
     <div id="aside" class="aside">
@@ -60,7 +129,42 @@
       </div>
       <button type="button" id="b" class="btn btn-primary" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;" onclick="fadeInAside()"> ← </button>
 
-    
+      <script>
+        function calculateDistance() {
+            var distanceForm = document.getElementById("distanceForm");
+            var button = distanceForm.querySelector(".AnimationButton"); 
+            var resultDiv = document.getElementById("result");
+
+            // Button deaktivieren und Ladeanimation anzeigen
+            button.disabled = true;
+            button.classList.add('AnimationButton--loading');
+
+            // Werte aus den Formularelementen abrufen
+            var planeX = parseFloat(document.getElementById("nx").value);
+            var planeY = parseFloat(document.getElementById("ny").value);
+            var planeZ = parseFloat(document.getElementById("nz").value);
+            var normalX = parseFloat(document.getElementById("x1").value);
+            var normalY = parseFloat(document.getElementById("y1").value);
+            var normalZ = parseFloat(document.getElementById("z1").value);
+            var lineX = parseFloat(document.getElementById("x2").value);
+            var lineY = parseFloat(document.getElementById("y2").value);
+            var lineZ = parseFloat(document.getElementById("z2").value);
+
+            // Abstand berechnen
+            var numerator = Math.abs((planeX - lineX) * normalX + (planeY - lineY) * normalY + (planeZ - lineZ) * normalZ);
+            var denominator = Math.sqrt(normalX * normalX + normalY * normalY + normalZ * normalZ);
+            var distance = numerator / denominator;
+
+            // Ergebnis anzeigen
+            setTimeout(function () {
+                resultDiv.innerHTML = "Der Abstand zwischen der Ebene und der Geraden beträgt: " + distance.toFixed(2);
+                button.disabled = false;
+                button.classList.remove('AnimationButton--loading'); 
+            }, 1000);
+}
+    </script>
+
+
 </body>
 <footer>
     <a href="credits.html">Credits</a>
