@@ -20,7 +20,7 @@
 
         <form id="distanceForm" class = "tabelle-style">
             <div class="coordinate-container">
-                <label for="point1">Normalenvektor 1:</label>
+                <label for="point1">Koeffizienten Ebene:</label>
                 <div class="coordinate">
                     <span class="parentheses">(</span>
                     <input type="number" id="nx"class = "input" name="x1" required placeholder="x1">
@@ -38,7 +38,7 @@
                 </div>
             </div>
             <div class="coordinate-container">
-                <label for="point2">Punkt auf Ebene 1:</label>
+                <label for="point2">Punkt auf Ebene:</label>
                 <div class="coordinate">
                     <span class="parentheses">(</span>
                     <input type="number" class = "input"id="x1" name="x2" required placeholder="x2">
@@ -57,7 +57,7 @@
             </div>
 
             <div class="coordinate-container">
-              <label for="point2">Normalenvektor 2:</label>
+              <label for="point2">Punkt auf Ebene 2:</label>
               <div class="coordinate">
                   <span class="parentheses">(</span>
                   <input type="number" class = "input"id="nx1" name="x2" required placeholder="x2">
@@ -74,25 +74,8 @@
                   <span class="parentheses">)</span>
               </div>
           </div>
-          <div class="coordinate-container">
-            <label for="point2">Punkt auf Ebene 2:</label>
-            <div class="coordinate">
-                <span class="parentheses">(</span>
-                <input type="number" class = "input"id="x2" name="x2" required placeholder="x2">
-                <span class="parentheses">)</span>
-            </div>
-            <div class="coordinate">
-                <span class="parentheses">(</span>
-                <input type="number" class = "input"id="y2" name="y2" required placeholder="y2">
-                <span class="parentheses">)</span>
-            </div>
-            <div class="coordinate">
-                <span class="parentheses">(</span>
-                <input type="number"class = "input" id="z2" name="z2" required placeholder="z2">
-                <span class="parentheses">)</span>
-            </div>
-        </div>
-
+          
+          <br>
             <button type="button" class="AnimationButton" onclick="calculateDistance()">
               <span class="button__text">Berechnen</span>
           </button>
@@ -149,39 +132,39 @@
 
       <script>
         function calculateDistance() {
-            var distanceForm = document.getElementById("distanceForm");
-            var button = distanceForm.querySelector(".AnimationButton"); 
-            var resultDiv = document.getElementById("result");
+    var distanceForm = document.getElementById("distanceForm");
+    var button = distanceForm.querySelector(".AnimationButton"); 
+    var resultDiv = document.getElementById("result");
 
-            // Button deaktivieren und Ladeanimation anzeigen
-            button.disabled = true;
-            button.classList.add('AnimationButton--loading');
+    // Button deaktivieren und Ladeanimation anzeigen
+    button.disabled = true;
+    button.classList.add('AnimationButton--loading');
 
-            // Werte aus den Formularelementen abrufen
-     var a1 = parseFloat(document.getElementById("nx").value);
-    var b1 = parseFloat(document.getElementById("ny").value);
-    var c1 = parseFloat(document.getElementById("nz").value);
+    // Werte aus den Formularelementen abrufen
+    var a = parseFloat(document.getElementById("a").value);
+    var b = parseFloat(document.getElementById("b").value);
+    var c = parseFloat(document.getElementById("c").value);
     var x1 = parseFloat(document.getElementById("x1").value);
     var y1 = parseFloat(document.getElementById("y1").value);
     var z1 = parseFloat(document.getElementById("z1").value);
-    var a2 = parseFloat(document.getElementById("nx1").value);
-    var b2 = parseFloat(document.getElementById("ny1").value);
-    var c2 = parseFloat(document.getElementById("nz1").value);
     var x2 = parseFloat(document.getElementById("x2").value);
     var y2 = parseFloat(document.getElementById("y2").value);
     var z2 = parseFloat(document.getElementById("z2").value);
 
+    // Berechne d
+    var d = a * x1 + b * y1 + c * z1;
+
     // Abstand berechnen
-    var numerator = Math.abs(a1 * x1 + b1 * y1 + c1 * z1 - a2 * x2 - b2 * y2 - c2 * z2);
-    var denominator = Math.sqrt(a1 * a1 + b1 * b1 + c1 * c1);
+    var numerator = Math.abs(a * x2 + b * y2 + c * z2 - d);
+    var denominator = Math.sqrt(a * a + b * b + c * c);
     var distance = numerator / denominator;
 
-            // Ergebnis anzeigen
-            setTimeout(function () {
-                resultDiv.innerHTML = "Der Abstand zwischen der Ebene und der Geraden beträgt: " + distance.toFixed(2);
-                button.disabled = false;
-                button.classList.remove('AnimationButton--loading'); 
-            }, 1000);
+    // Ergebnis anzeigen
+    setTimeout(function () {
+        resultDiv.innerHTML = "Der Abstand zwischen der Ebene und dem Punkt beträgt: " + distance.toFixed(2);
+        button.disabled = false;
+        button.classList.remove('AnimationButton--loading'); 
+    }, 1000);
 }
     </script>
 
