@@ -83,3 +83,8 @@ function vektorPlusVektor(x1, x2, x3, y1, y2, y3)
 
     return { resx, resy, resz };
 }
+
+function getRandomNumber() {
+    var randomNumber = Math.floor(Math.random() * 201);
+    return randomNumber - 100;
+}

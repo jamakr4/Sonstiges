@@ -17,7 +17,9 @@
         <a href="index.html">
             <button class="button">Zurück</button>
         </a>
-
+        <div class="wrapper">
+        <div class="container1">
+            <!-- Eingabe-->
         <form id="distanceForm" class = "tabelle-style">
             <div class="coordinate-container">
                 <label for="point1">Punkt 1:</label>
@@ -68,6 +70,78 @@
         </form>
 
         <div id="result"></div>
+    </div>
+
+
+
+        <div class="container2">
+          
+            <!-- Ab hier Punkt 1-->
+            <div class="coordinate-container">
+                <label for="point1">Punkt 1:</label>
+
+                <div class="coordinate">
+                    <span class="parentheses">(</span>
+                    <span id="rndm1">1</span>
+                    <span class="parentheses">)</span>
+                </div>
+
+                <div class="coordinate">
+                    <span class="parentheses">(</span>
+                    <span id="rndm2">2</span>
+                    <span class="parentheses">)</span>
+                </div>
+
+                <div class="coordinate">
+                    <span class="parentheses">(</span>
+                    <span id="rndm3">3</span>
+                    <span class="parentheses">)</span>
+                </div>
+            </div>
+ 
+          <!-- Ab hier Punkt 2-->
+
+            <div class="coordinate-container">
+                <label for="point1">Punkt 2:</label>
+                
+                <div class="coordinate">
+                    <span class="parentheses">(</span>
+                    <span id="rndm4">4</span>
+                    <span class="parentheses">)</span>
+                </div>
+
+                <div class="coordinate">
+                    <span class="parentheses">(</span>
+                    <span id="rndm5">4</span>
+                    <span class="parentheses">)</span>
+                </div>
+
+                <div class="coordinate">
+                    <span class="parentheses">(</span>
+                    <span id="rndm6">3</span>
+                    <span class="parentheses">)</span>
+                </div>
+
+                <br><br><br>
+
+                <div class="button-container">
+                    <button type="button" class="AnimationButton" onclick="calcuupdateRandomNumbers()">
+                        <span>erstellen</span>
+                    </button>
+                
+                    <button type="button" class="AnimationButton" onclick="solve(); calculateDistance()">
+                        <span>lösen</span>
+                    </button>
+                </div>
+
+                
+            </div>
+            
+        </div>
+    </div>
+
+    
+
     </main>
 
     <div id="aside" class="aside">
@@ -111,6 +185,8 @@
       </div>
       <button type="button" id="b" class="btn btn-primary" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;" onclick="fadeInAside()"> ← </button>
 
+
+
     <script>
         function calculateDistance() {
     var distanceForm = document.getElementById("distanceForm");
@@ -138,6 +214,29 @@
         button.disabled = false;
         button.classList.remove('AnimationButton--loading'); 
     }, 1000);
+}
+
+
+
+function calcuupdateRandomNumbers() {
+    // Aufgaben Werte generieren
+    document.getElementById("rndm4").textContent = getRandomNumber();
+    document.getElementById("rndm5").textContent = getRandomNumber();
+    document.getElementById("rndm6").textContent = getRandomNumber();
+    document.getElementById("rndm1").textContent = getRandomNumber();
+    document.getElementById("rndm2").textContent = getRandomNumber();
+    document.getElementById("rndm3").textContent = getRandomNumber();
+} 
+
+
+function solve() {
+    // Generierte Werte ins LÖsungs Form schreiben
+    document.getElementById("x1").value = document.getElementById("rndm1").textContent;
+    document.getElementById("y1").value = document.getElementById("rndm2").textContent;
+    document.getElementById("z1").value = document.getElementById("rndm3").textContent;
+    document.getElementById("x2").value = document.getElementById("rndm4").textContent;
+    document.getElementById("y2").value = document.getElementById("rndm5").textContent;
+    document.getElementById("z2").value = document.getElementById("rndm6").textContent;
 }
     </script>
 </body>
