@@ -146,17 +146,6 @@ input:active[type=button] {
 display: flex;
 }
 
-.button-container {
-  position: absolute; /*test zum pushen*/
-  top: 500px;
-  left: 800px; 
-  display: flex;
-  justify-content: flex-start;
-  border: 1px solid #000000;
-  padding: 10px;
-  width: 500px; 
-}
-
 .coordinate-container {
 display: flex;
 flex-direction: column;
@@ -181,7 +170,7 @@ display: grid;
 grid-template-columns: 1fr 1fr;
 border: #000000 ;
 height:65vh;
-width: 30vw;
+width: 20vw;
 flex-direction: auto;
 flex-wrap: wrap;
 align-content: flex-start;
@@ -193,13 +182,13 @@ text-align: center;
 .container2 {
   display: grid;
   grid-template-columns: 1fr 2fr; 
-  border: 1px solid #000000;
+  border: 1px  #000000;
   height: 65vh;
   width: 35vw;
   column-gap: 3em;
-  row-gap: 3em;
+  row-gap: 2em;
   text-align: center;
-  margin-left: 8em; 
+  margin-left: em; 
   }
 
 .box{
