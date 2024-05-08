@@ -141,20 +141,20 @@ input:active[type=button] {
 
 
 
-/* FlexContainer Styling für Index Seite*/
+
 .wrapper {
 display: flex;
 }
 
 .button-container {
-  position: absolute; /* Positionierung außerhalb des Flusslayouts */
-  top: 500px; /* Abstand vom oberen Rand */
-  left: 800px; /* Abstand vom linken Rand */
+  position: absolute; 
+  top: 500px;
+  left: 800px; 
   display: flex;
   justify-content: flex-start;
   border: 1px solid #000000;
   padding: 10px;
-  width: 500px; /* Breite des Containers */
+  width: 500px; 
 }
 
 .coordinate-container {
@@ -192,14 +192,14 @@ text-align: center;
 
 .container2 {
   display: grid;
-  grid-template-columns: 7fr 7fr; /* Adjusted grid-template-columns */
+  grid-template-columns: 1fr 2fr; 
   border: 1px solid #000000;
   height: 65vh;
-  width: 40vw;
+  width: 35vw;
   column-gap: 3em;
   row-gap: 3em;
   text-align: center;
-  margin-left: 8em; /* Abstand zwischen den Containern */
+  margin-left: 8em; 
   }
 
 .box{
