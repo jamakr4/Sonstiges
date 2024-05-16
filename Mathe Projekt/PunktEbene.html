@@ -175,20 +175,18 @@
             var Y1 = parseFloat(document.getElementById("y1").value);
             var Z1 = parseFloat(document.getElementById("z1").value);
 
-        // Richtungsvektoren der Ebene aus der Parameterform
-        var rX = RX1 - RX; // Komponenten der Richtungsvektoren
-        var rY = RY1 - RY;
-        var rZ = RZ1 - RZ;
+       
+ 
+ // Normalenvektor berechnen durch Kreuzprodukt der Richtungsvektoren
+        var normalX = RY * RZ1 - RY1 * RZ;
+        var normalY = RZ * RX1 - RZ1 * RX;
+        var normalZ = RX * RY1 - RX1 * RY;
 
-        // Normalenvektor berechnen durch Kreuzprodukt der Richtungsvektoren
-        var normalX = rY * (Z1 - Z) - rZ * (Y1 - Y);
-        var normalY = rZ * (X1 - X) - rX * (Z1 - Z);
-        var normalZ = rX * (Y1 - Y) - rY * (X1 - X);
-            // Hessesche Normalform der Ebene berechnen
-        var d = normalX * RX + normalY * RY + normalZ * RZ;
+// Hessesche Normalform der Ebene berechnen
+var d = normalX * RX + normalY * RY + normalZ * RZ;
 
 // Abstand berechnen
-var numerator = Math.abs(normalX * X + normalY * Y + normalZ * Z - d);
+var numerator = Math.abs(normalX * X1 + normalY * Y1 + normalZ * Z1 - d);
 var denominator = Math.sqrt(normalX * normalX + normalY * normalY + normalZ * normalZ);
 var distance = numerator / denominator;
 
