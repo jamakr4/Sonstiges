@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abstand Ebene - Punkt</title>
+    <title>Abstand Ebene - Ebene</title>
 </head>
 <body>
     <header>
@@ -61,8 +61,8 @@
             <button class="button">zurück</button>
         </a>
 
-        <form id="distanceForm" class = "tabelle-style">
-            
+        <form id="distanceForm" class = "tabelle-style1">
+            <div class = "wrapper">
             <div class="coordinate-container">
                 <label for="point2"> Stützvektor Ebene:</label>
                 <div class="coordinate">
@@ -82,7 +82,8 @@
                 </div>
             </div>
 
-            
+           
+           
             <div class="coordinate-container">
                 <label for="point1">RV1 Ebene:</label>
                 <div class="coordinate">
@@ -119,10 +120,10 @@
                     <span class="parentheses">)</span>
                 </div>
             </div>
-            
-
+        </div>
+        <br>
             <div class="coordinate-container">
-              <label for="point2">Punkt:</label>
+              <label for="point2">Punkt :</label>
               <div class="coordinate">
                   <span class="parentheses">(</span>
                   <input type="number" class = "input"id="x1" name="x2" required placeholder="x2">
@@ -140,11 +141,12 @@
               </div>
           </div>
           
+          <br>
             <button type="button" class="AnimationButton" onclick="calculateDistance()">
               <span class="button__text">Berechnen</span>
           </button>
 
-          <button type="reset" class="AnimationButton">
+          <button type="reset" class="AnimationButton1">
               <span class="button__text">Reset</span>
           </button>
 
@@ -153,7 +155,7 @@
         <div id="result"></div>
     </main>
 
-    
+   
       <script>
         function calculateDistance() {
             var distanceForm = document.getElementById("distanceForm");
@@ -201,7 +203,26 @@ setTimeout(function () {
 }, 1000);
 }
 </script>
+<style>
 
+.tabelle-style1 {
+          display: grid;
+          grid-template-columns: 400px 400px; /* Änderung der Spaltenbreite */
+          grid-gap: 10px;
+      }
+
+.AnimationButton1 {
+    position: absolute;
+    background: #007a63;
+    left: 220px;
+    top: 610px;
+    width: 150px;
+    font: bold 16px "Quicksand", san-serif; /* Ändere die Schriftgröße */
+    color: #ffffff;
+    border: none;
+    height:35px;
+}
+</style>
 
 </body>
 <footer>
