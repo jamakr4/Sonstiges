@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src="scripts.js"></script>
-    <link rel="icon" type="image/x-icon" href="/media/favicon.png">
+    
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,6 +15,8 @@
 </header>
 <body>
     <main>
+
+        <div id=" test"></div>
 
         <div id="aside" class="aside">
             <aside> <!--Seitenleiste-->
@@ -57,6 +60,11 @@
           <button type="button" id="b" class="btn btn-primary" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;" onclick="fadeInAside()"> ← </button>
     
     
+         <!--Hier Lösung-->
+          <div id="print">Lösung</div>
+          <div id="formel"><img src="/media/formel1.png" alt="Beschreibung des Bildes" /></div>
+          <div id="schritt1"></div>
+          <!--Hier Lösung Ende-->
 
         <a href="index.html">
             <button class="button">Zurück</button>
@@ -111,7 +119,7 @@
                 <span class="button__text">Reset</span>
             </button>
 
-            <div id="result"></div>
+            <div id="t"></div>
             
         </form>
 
@@ -127,7 +135,8 @@
     
 
     <script>
-        function calculateDistance() {
+
+    function calculateDistance() {
     var distanceForm = document.getElementById("distanceForm");
     var button = distanceForm.querySelector(".AnimationButton"); 
     var resultDiv = document.getElementById("result");
@@ -143,41 +152,62 @@
     var x2 = parseFloat(document.getElementById("x2").value);
     var y2 = parseFloat(document.getElementById("y2").value);
     var z2 = parseFloat(document.getElementById("z2").value);
+    
 
     // Abstand berechnen
     var distance = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2) + Math.pow(z2 - z1, 2));
 
     // Ergebnis anzeigen
     setTimeout(function () {
-        resultDiv.innerHTML = "Der Abstand zwischen den beiden Punkten beträgt: " + distance.toFixed(2);
+        resultDiv = document.getElementById("t");
+        t.innerHTML = "Der Abstand zwischen den beiden Punkten beträgt: " + distance.toFixed(2);
         button.disabled = false;
         button.classList.remove('AnimationButton--loading'); 
+        console.log(distance.toFixed(2));
+        var d = document.getElementById("schritt1");
+        d.innerHTML = distance.toFixed(2);
     }, 1000);
 }
 
 
 
-function calcuupdateRandomNumbers() {
-    // Aufgaben Werte generieren
-    document.getElementById("rndm4").textContent = getRandomNumber();
-    document.getElementById("rndm5").textContent = getRandomNumber();
-    document.getElementById("rndm6").textContent = getRandomNumber();
-    document.getElementById("rndm1").textContent = getRandomNumber();
-    document.getElementById("rndm2").textContent = getRandomNumber();
-    document.getElementById("rndm3").textContent = getRandomNumber();
-} 
-
-
-function solve() {
-    // Generierte Werte ins LÖsungs Form schreiben
-    document.getElementById("x1").value = document.getElementById("rndm1").textContent;
-    document.getElementById("y1").value = document.getElementById("rndm2").textContent;
-    document.getElementById("z1").value = document.getElementById("rndm3").textContent;
-    document.getElementById("x2").value = document.getElementById("rndm4").textContent;
-    document.getElementById("y2").value = document.getElementById("rndm5").textContent;
-    document.getElementById("z2").value = document.getElementById("rndm6").textContent;
+function clearScreen() {
+    document.getElementById("result").value = "";
+}
+ 
+function display(value) {
+    document.getElementById("result").value += value;
+}
+ 
+function calculate() {
+    var p = document.getElementById("result").value;
+    var q = eval(p);
+    document.getElementById("result").value = q;
 }
     </script>
+
+    <style>
+        #print
+        {
+            position: absolute;
+            left: 500px;
+            top: 150px;
+        }
+
+        #formel
+        {
+            position: absolute;
+            left: 500px;
+            top: 180px;
+        }
+        #schritt1
+        {
+            position: absolute;
+            left: 500px;
+            top: 2230px;
+            
+        }
+    </style>
 </body>
 <footer>
     <a href="credits.html">Credits</a>
