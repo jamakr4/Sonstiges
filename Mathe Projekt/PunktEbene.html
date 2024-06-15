@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abstand Ebene - Ebene</title>
+    <title>Abstand Ebene - Punkt</title>
 </head>
 <body>
     <header>
@@ -16,12 +16,10 @@
     <main>
 
         <div id="aside" class="aside">
-            <aside> <!--Seitenleiste-->
+            <aside>
               <button type="button" class="btn btn-primary" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;" onclick="fadeOutAside()"> ← </button>
-              
               <br><br>
-        
-              <table class="calculator" >
+              <table class="calculator">
                 <tr>
                   <td colspan="3"> <input class="display-box" type="text" id="result" disabled /> </td>
                   <td> <input type="button" value="C" onclick="clearScreen()" id="btn" /> </td>
@@ -51,115 +49,109 @@
                   <td> <input type="button" value="*" onclick="display('*')" /> </td>
                 </tr>
               </table>
-             
             </aside>
           </div>
           <button type="button" id="b" class="btn btn-primary" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;" onclick="fadeInAside()"> ← </button>
-    
 
         <a href="index.html">
             <button class="button">zurück</button>
         </a>
 
-        <form id="distanceForm" class = "tabelle-style1">
-            <div class = "wrapper">
-            <div class="coordinate-container">
-                <label for="point2"> Stützvektor Ebene:</label>
-                <div class="coordinate">
-                    <span class="parentheses">(</span>
-                    <input type="number" class = "input"id="x" name="x2" required placeholder="x2">
-                    <span class="parentheses">)</span>
+        <form id="distanceForm" class="tabelle-style1">
+            <div class="wrapper">
+                <div class="coordinate-container">
+                    <label for="point2">Stützvektor Ebene:</label>
+                    <div class="coordinate">
+                        <span class="parentheses">(</span>
+                        <input type="number" class="input" id="x" name="x2" required placeholder="x">
+                        <span class="parentheses">)</span>
+                    </div>
+                    <div class="coordinate">
+                        <span class="parentheses">(</span>
+                        <input type="number" class="input" id="y" name="y2" required placeholder="y">
+                        <span class="parentheses">)</span>
+                    </div>
+                    <div class="coordinate">
+                        <span class="parentheses">(</span>
+                        <input type="number" class="input" id="z" name="z2" required placeholder="z">
+                        <span class="parentheses">)</span>
+                    </div>
                 </div>
-                <div class="coordinate">
-                    <span class="parentheses">(</span>
-                    <input type="number" class = "input"id="y" name="y2" required placeholder="y2">
-                    <span class="parentheses">)</span>
-                </div>
-                <div class="coordinate">
-                    <span class="parentheses">(</span>
-                    <input type="number"class = "input" id="z" name="z2" required placeholder="z2">
-                    <span class="parentheses">)</span>
-                </div>
-            </div>
 
-           
-           
+                <div class="coordinate-container">
+                    <label for="point1">RV1 Ebene:</label>
+                    <div class="coordinate">
+                        <span class="parentheses">(</span>
+                        <input type="number" id="rx" class="input" name="x1" required placeholder="rx">
+                        <span class="parentheses">)</span>
+                    </div>
+                    <div class="coordinate">
+                        <span class="parentheses">(</span>
+                        <input type="number" id="ry" class="input" name="y1" required placeholder="ry">
+                        <span class="parentheses">)</span>
+                    </div>
+                    <div class="coordinate">
+                        <span class="parentheses">(</span>
+                        <input type="number" class="input" id="rz" name="z1" required placeholder="rz">
+                        <span class="parentheses">)</span>
+                    </div>
+                </div>
+
+                <div class="coordinate-container">
+                    <label for="point2">RV2 Ebene:</label>
+                    <div class="coordinate">
+                        <span class="parentheses">(</span>
+                        <input type="number" class="input" id="rx1" name="x2" required placeholder="rx1">
+                        <span class="parentheses">)</span>
+                    </div>
+                    <div class="coordinate">
+                        <span class="parentheses">(</span>
+                        <input type="number" class="input" id="ry1" name="y2" required placeholder="ry1">
+                        <span class="parentheses">)</span>
+                    </div>
+                    <div class="coordinate">
+                        <span class="parentheses">(</span>
+                        <input type="number" class="input" id="rz1" name="z2" required placeholder="rz1">
+                        <span class="parentheses">)</span>
+                    </div>
+                </div>
+            </div>
+            <br>
             <div class="coordinate-container">
-                <label for="point1">RV1 Ebene:</label>
+                <label for="point2">Punkt :</label>
                 <div class="coordinate">
                     <span class="parentheses">(</span>
-                    <input type="number" id="rx"class = "input" name="x1" required placeholder="x1">
+                    <input type="number" class="input" id="x1" name="x2" required placeholder="x1">
                     <span class="parentheses">)</span>
                 </div>
                 <div class="coordinate">
                     <span class="parentheses">(</span>
-                    <input type="number" id="ry"class = "input" name="y1" required placeholder="y1">
+                    <input type="number" class="input" id="y1" name="y2" required placeholder="y1">
                     <span class="parentheses">)</span>
                 </div>
                 <div class="coordinate">
                     <span class="parentheses">(</span>
-                    <input type="number" class = "input" id="rz" name="z1" required placeholder="z1">
+                    <input type="number" class="input" id="z1" name="z2" required placeholder="z1">
                     <span class="parentheses">)</span>
                 </div>
             </div>
-            <div class="coordinate-container">
-                <label for="point2">RV2 Ebene:</label>
-                <div class="coordinate">
-                    <span class="parentheses">(</span>
-                    <input type="number" class = "input"id="rx1" name="x2" required placeholder="x2">
-                    <span class="parentheses">)</span>
-                </div>
-                <div class="coordinate">
-                    <span class="parentheses">(</span>
-                    <input type="number" class = "input"id="ry1" name="y2" required placeholder="y2">
-                    <span class="parentheses">)</span>
-                </div>
-                <div class="coordinate">
-                    <span class="parentheses">(</span>
-                    <input type="number"class = "input" id="rz1" name="z2" required placeholder="z2">
-                    <span class="parentheses">)</span>
-                </div>
-            </div>
-        </div>
-        <br>
-            <div class="coordinate-container">
-              <label for="point2">Punkt :</label>
-              <div class="coordinate">
-                  <span class="parentheses">(</span>
-                  <input type="number" class = "input"id="x1" name="x2" required placeholder="x2">
-                  <span class="parentheses">)</span>
-              </div>
-              <div class="coordinate">
-                  <span class="parentheses">(</span>
-                  <input type="number" class = "input"id="y1" name="y2" required placeholder="y2">
-                  <span class="parentheses">)</span>
-              </div>
-              <div class="coordinate">
-                  <span class="parentheses">(</span>
-                  <input type="number"class = "input" id="z1" name="z2" required placeholder="z2">
-                  <span class="parentheses">)</span>
-              </div>
-          </div>
-          
-          <br>
+            <br>
             <button type="button" class="AnimationButton" onclick="calculateDistance()">
-              <span class="button__text">Berechnen</span>
-          </button>
+                <span class="button__text">Berechnen</span>
+            </button>
 
-          <button type="reset" class="AnimationButton1">
-              <span class="button__text">Reset</span>
-          </button>
-
-            </form>
+            <button type="reset" class="AnimationButton1">
+                <span class="button__text">Reset</span>
+            </button>
+        </form>
 
         <div id="r"></div>
     </main>
 
-   
-      <script>
+    <script>
         function calculateDistance() {
             var distanceForm = document.getElementById("distanceForm");
-            var button = distanceForm.querySelector(".AnimationButton"); 
+            var button = distanceForm.querySelector(".AnimationButton");
             var resultDiv = document.getElementById("r");
 
             // Button deaktivieren und Ladeanimation anzeigen
@@ -173,56 +165,54 @@
             var RX1 = parseFloat(document.getElementById("rx1").value);
             var RY1 = parseFloat(document.getElementById("ry1").value);
             var RZ1 = parseFloat(document.getElementById("rz1").value);
-            var X = parseFloat(document.getElementById("x").value);
-            var Y = parseFloat(document.getElementById("y").value);
-            var Z = parseFloat(document.getElementById("z").value);
+            var PX = parseFloat(document.getElementById("x").value);
+            var PY = parseFloat(document.getElementById("y").value);
+            var PZ = parseFloat(document.getElementById("z").value);
             var X1 = parseFloat(document.getElementById("x1").value);
             var Y1 = parseFloat(document.getElementById("y1").value);
             var Z1 = parseFloat(document.getElementById("z1").value);
 
-       
- 
- // Normalenvektor berechnen durch Kreuzprodukt der Richtungsvektoren
-        var normalX = RY * RZ1 - RY1 * RZ;
-        var normalY = RZ * RX1 - RZ1 * RX;
-        var normalZ = RX * RY1 - RX1 * RY;
+            // Normalenvektor berechnen durch Kreuzprodukt der Richtungsvektoren
+            var normalX = RY * RZ1 - RY1 * RZ;
+            var normalY = RZ * RX1 - RZ1 * RX;
+            var normalZ = RX * RY1 - RX1 * RY;
 
-// Hessesche Normalform der Ebene berechnen
-var d = normalX * RX + normalY * RY + normalZ * RZ;
+            // Hessesche Normalform der Ebene berechnen
+            var d = -(normalX * PX + normalY * PY + normalZ * PZ);
 
-// Abstand berechnen
-var numerator = Math.abs(normalX * X1 + normalY * Y1 + normalZ * Z1 - d);
-var denominator = Math.sqrt(normalX * normalX + normalY * normalY + normalZ * normalZ);
-var distance = numerator / denominator;
+            // Abstand berechnen
+            var numerator = Math.abs(normalX * X1 + normalY * Y1 + normalZ * Z1 + d);
+            var denominator = Math.sqrt(normalX * normalX + normalY * normalY + normalZ * normalZ);
+            var distance = numerator / denominator;
 
-// Ergebnis anzeigen
-setTimeout(function () {
-    resultDiv.innerHTML = "Der Abstand zwischen der Ebene und der Geraden beträgt: " + distance.toFixed(2);
-    button.disabled = false;
-    button.classList.remove('AnimationButton--loading'); 
-}, 1000);
-}
-</script>
-<style>
+            // Ergebnis anzeigen
+            setTimeout(function () {
+                resultDiv.innerHTML = "Der Abstand zwischen dem Punkt und der Ebene beträgt: " + distance.toFixed(2);
+                button.disabled = false;
+                button.classList.remove('AnimationButton--loading');
+            }, 1000);
+        }
+    </script>
 
-.tabelle-style1 {
-          display: grid;
-          grid-template-columns: 400px 400px; /* Änderung der Spaltenbreite */
-          grid-gap: 10px;
-      }
+    <style>
+        .tabelle-style1 {
+            display: grid;
+            grid-template-columns: 400px 400px;
+            grid-gap: 10px;
+        }
 
-.AnimationButton1 {
-    position: absolute;
-    background: #007a63;
-    left: 220px;
-    top: 610px;
-    width: 150px;
-    font: bold 16px "Quicksand", san-serif; /* Ändere die Schriftgröße */
-    color: #ffffff;
-    border: none;
-    height:35px;
-}
-</style>
+        .AnimationButton1 {
+            position: absolute;
+            background: #007a63;
+            left: 220px;
+            top: 610px;
+            width: 150px;
+            font: bold 16px "Quicksand", san-serif;
+            color: #ffffff;
+            border: none;
+            height: 35px;
+        }
+    </style>
 
 </body>
 <footer>
