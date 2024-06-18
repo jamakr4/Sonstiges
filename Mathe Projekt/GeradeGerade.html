@@ -121,7 +121,7 @@
             
            
             
-            <button type="button" class="AnimationButton" onclick="calculateDistance()">
+            <button type="button" class="AnimationButton" onclick="calculateDistance1()">
                 <span class="button__text">Berechnen</span>
             </button>
 
@@ -138,41 +138,49 @@
     </main>
    
     <script>
-        function calculateDistance() {
-            var distanceForm = document.getElementById("distanceForm");
-            var button = distanceForm.querySelector(".AnimationButton"); 
-            var resultDiv = document.getElementById("r");
-
-            // Button deaktivieren und Ladeanimation anzeigen
-            button.disabled = true;
-            button.classList.add('AnimationButton--loading');
-
-            // Werte aus den Formularelementen abrufen
-            var nx = parseFloat(document.getElementById("nx").value);
-            var ny = parseFloat(document.getElementById("ny").value);
-            var nz = parseFloat(document.getElementById("nz").value);
+        
+        function calculateDistance1() {
+            
             var x1 = parseFloat(document.getElementById("x1").value);
             var y1 = parseFloat(document.getElementById("y1").value);
             var z1 = parseFloat(document.getElementById("z1").value);
+    
+            var button = document.querySelector('.AnimationButton');
+            button.disabled = true;
+            button.classList.add('AnimationButton--loading');
+    
             var x2 = parseFloat(document.getElementById("x2").value);
             var y2 = parseFloat(document.getElementById("y2").value);
             var z2 = parseFloat(document.getElementById("z2").value);
+    
+            var x3 = parseFloat(document.getElementById("nx").value);
+            var y3 = parseFloat(document.getElementById("ny").value);
+            var z3 = parseFloat(document.getElementById("nz").value);
 
-            // Abstand berechnen
-            var vx = x1 - x2;
-            var vy = y1 - y2;
-            var vz = z1 - z2;
-            var distance = Math.abs(nx * vx + ny * vy + nz * vz) / Math.sqrt(nx * nx + ny * ny + nz * nz);
+            //Vektor - Vektor = Zwischen Ergebnis #1
+            var resx = x1 - x2;
+            var resy = y1 - y2;
+            var resz = z1 - z2;
 
-            // Ergebnis anzeigen
-            resultDiv.innerHTML = "Der Abstand zwischen den parallelen Geraden beträgt: " + distance.toFixed(2);
+            //Kreuzprodukt = Zwischen Ergebnis #2
+            var resultx = (resy * z3) - (resz * y3);
+            var resulty = (resz * x3) - (resx * z3);
+            var resultz = (resx * y3) - (resy * x3);
 
-            // Button wieder aktivieren und Ladeanimation entfernen
+            //Länge berechnen = Zwischen Ergebnis #3 & #4
+            var length1 = Math.sqrt(Math.pow(resultx, 2) + Math.pow(resulty, 2) + Math.pow(resultz, 2));
+            var length2 = Math.sqrt(Math.pow(x3, 2) + Math.pow(y3, 2) + Math.pow(z3, 2));
+
+            //Länge/Länge = Finales Ergebnis
+            res = length1/length2;
+    
             setTimeout(function () {
+                document.getElementById("r").innerHTML = "Der Abstand zwischen Punkt und Gerade beträgt: " + res.toFixed(2);
                 button.disabled = false;
                 button.classList.remove('AnimationButton--loading'); 
             }, 1000);
         }
+    
     </script>
 </body>
 <footer>

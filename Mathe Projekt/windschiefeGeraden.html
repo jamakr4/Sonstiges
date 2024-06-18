@@ -65,6 +65,24 @@
         
             <form id="distanceForm" class = "tabelle-style">
                 <div class="coordinate-container">
+                    <label for="point2">Punkt auf Gerade 1:</label>
+                    <div class="coordinate">
+                        <span class="parentheses">(</span>
+                        <input type="number" class = "input"id="x1" name="x2" required placeholder="x2">
+                        <span class="parentheses">)</span>
+                    </div>
+                    <div class="coordinate">
+                        <span class="parentheses">(</span>
+                        <input type="number" class = "input"id="y1" name="y2" required placeholder="y2">
+                        <span class="parentheses">)</span>
+                    </div>
+                    <div class="coordinate">
+                        <span class="parentheses">(</span>
+                        <input type="number"class = "input" id="z1" name="z2" required placeholder="z2">
+                        <span class="parentheses">)</span>
+                    </div>
+                </div>
+                <div class="coordinate-container">
                     <label for="point1">Richtungsvektor 1:</label>
                     <div class="coordinate">
                         <span class="parentheses">(</span>
@@ -83,21 +101,23 @@
                     </div>
                 </div>
                 
+               
+                
                 <div class="coordinate-container">
-                    <label for="point2">Punkt auf Gerade 1:</label>
+                    <label for="point2">Punkt auf Gerade 2:</label>
                     <div class="coordinate">
                         <span class="parentheses">(</span>
-                        <input type="number" class = "input"id="x1" name="x2" required placeholder="x2">
+                        <input type="number" class = "input"id="x2" name="x2" required placeholder="x2">
                         <span class="parentheses">)</span>
                     </div>
                     <div class="coordinate">
                         <span class="parentheses">(</span>
-                        <input type="number" class = "input"id="y1" name="y2" required placeholder="y2">
+                        <input type="number" class = "input"id="y2" name="y2" required placeholder="y2">
                         <span class="parentheses">)</span>
                     </div>
                     <div class="coordinate">
                         <span class="parentheses">(</span>
-                        <input type="number"class = "input" id="z1" name="z2" required placeholder="z2">
+                        <input type="number"class = "input" id="z2" name="z2" required placeholder="z2">
                         <span class="parentheses">)</span>
                     </div>
                 </div>
@@ -119,26 +139,6 @@
                         <span class="parentheses">)</span>
                     </div>
                 </div>
-                
-                <div class="coordinate-container">
-                    <label for="point2">Punkt auf Gerade 2:</label>
-                    <div class="coordinate">
-                        <span class="parentheses">(</span>
-                        <input type="number" class = "input"id="x2" name="x2" required placeholder="x2">
-                        <span class="parentheses">)</span>
-                    </div>
-                    <div class="coordinate">
-                        <span class="parentheses">(</span>
-                        <input type="number" class = "input"id="y2" name="y2" required placeholder="y2">
-                        <span class="parentheses">)</span>
-                    </div>
-                    <div class="coordinate">
-                        <span class="parentheses">(</span>
-                        <input type="number"class = "input" id="z2" name="z2" required placeholder="z2">
-                        <span class="parentheses">)</span>
-                    </div>
-                </div>
-                
                 <button type="button" class="AnimationButton" onclick="calculateDistance()">
                     <span class="button__text">Berechnen</span>
                 </button>
@@ -160,41 +160,62 @@
 
     <script>
         function calculateDistance() {
-    var distanceForm = document.getElementById("distanceForm");
-    var button = distanceForm.querySelector(".AnimationButton"); 
-    var resultDiv = document.getElementById("r");
-
-    // Button deaktivieren und Ladeanimation anzeigen
-    button.disabled = true;
-    button.classList.add('AnimationButton--loading');
-
-    // Werte aus den Formularelementen abrufen
-    var a1 = parseFloat(document.getElementById("a1").value);
-    var b1 = parseFloat(document.getElementById("b1").value);
-    var c1 = parseFloat(document.getElementById("c1").value);
-    var x1 = parseFloat(document.getElementById("x1").value);
-    var y1 = parseFloat(document.getElementById("y1").value);
-    var z1 = parseFloat(document.getElementById("z1").value);
-    var a2 = parseFloat(document.getElementById("a2").value);
-    var b2 = parseFloat(document.getElementById("b2").value);
-    var c2 = parseFloat(document.getElementById("c2").value); // Hier wurde "c2" zu "c1" korrigiert
-    var x2 = parseFloat(document.getElementById("x2").value);
-    var y2 = parseFloat(document.getElementById("y2").value);
-    var z2 = parseFloat(document.getElementById("z2").value);
-
-    // Abstand berechnen
-    var vx = x1 - x2;
-    var vy = y1 - y2;
-    var vz = z1 - z2;
-    var distance = Math.abs((a1 * vx + b1 * vy + c1 * vz) / Math.sqrt(a1 * a1 + b1 * b1 + c1 * c1));
-
-    // Ergebnis anzeigen
-    setTimeout(function () {
-        resultDiv.innerHTML = "Der Abstand zwischen den Windschiefen Geraden beträgt: " + distance.toFixed(2);
-        button.disabled = false;
-        button.classList.remove('AnimationButton--loading'); 
-    }, 1000);
-}
+            var distanceForm = document.getElementById("distanceForm");
+            var button = distanceForm.querySelector(".AnimationButton"); 
+            var resultDiv = document.getElementById("r");
+    
+            // Button deaktivieren und Ladeanimation anzeigen
+            button.disabled = true;
+            button.classList.add('AnimationButton--loading');
+    
+            // Werte aus den Formularelementen abrufen
+            var a1 = parseFloat(document.getElementById("a1").value);
+            var b1 = parseFloat(document.getElementById("b1").value);
+            var c1 = parseFloat(document.getElementById("c1").value);
+            var x1 = parseFloat(document.getElementById("x1").value);
+            var y1 = parseFloat(document.getElementById("y1").value);
+            var z1 = parseFloat(document.getElementById("z1").value);
+            var a2 = parseFloat(document.getElementById("a2").value);
+            var b2 = parseFloat(document.getElementById("b2").value);
+            var c2 = parseFloat(document.getElementById("c2").value); 
+            var x2 = parseFloat(document.getElementById("x2").value);
+            var y2 = parseFloat(document.getElementById("y2").value);
+            var z2 = parseFloat(document.getElementById("z2").value);
+    
+            // Kreuzprodukt der Richtungsvektoren berechnen
+            var nx = b1 * c2 - c1 * b2;
+            var ny = c1 * a2 - a1 * c2;
+            var nz = a1 * b2 - b1 * a2;
+    
+            // Betrag des Kreuzprodukts berechnen
+            var nLength = Math.sqrt(nx * nx + ny * ny + nz * nz);
+    
+            // Prüfen, ob der Normalenvektor null ist (Parallel)
+            if (nLength === 0) {
+                resultDiv.innerHTML = "Die Geraden sind parallel und haben keinen eindeutigen Abstand.";
+                button.disabled = false;
+                button.classList.remove('AnimationButton--loading'); 
+                return;
+            }
+    
+            // Vektor zwischen den beiden Stützpunkten berechnen
+            var dx = x2 - x1;
+            var dy = y2 - y1;
+            var dz = z2 - z1;
+    
+            // Skalarprodukt des Vektors zwischen den Stützpunkten und dem Kreuzprodukt der Richtungsvektoren
+            var numerator = Math.abs(dx * nx + dy * ny + dz * nz);
+    
+            // Abstand berechnen
+            var distance = numerator / nLength;
+    
+            // Ergebnis anzeigen
+            setTimeout(function () {
+                resultDiv.innerHTML = "Der Abstand zwischen den windschiefen Geraden beträgt: " + distance.toFixed(2) + " Längeneinheiten";
+                button.disabled = false;
+                button.classList.remove('AnimationButton--loading'); 
+            }, 1000);
+        }
     </script>
 </body>
 <footer>
