@@ -60,8 +60,7 @@
           <button type="button" id="b" class="btn btn-primary" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;" onclick="fadeInAside()"> ← </button>
     
     
-         <!--Hier Lösung-->
-          <!--Hier Lösung Ende-->
+        
 
         <a href="index.html">
             <button class="button">Zurück</button>
@@ -138,11 +137,11 @@
     var button = distanceForm.querySelector(".AnimationButton"); 
     var resultDiv = document.getElementById("result");
 
-    // Button deaktivieren und Ladeanimation anzeigen
+    
     button.disabled = true;
     button.classList.add('AnimationButton--loading');
 
-    // Werte aus den Formularelementen abrufen
+   
     var x1 = parseFloat(document.getElementById("x1").value);
     var y1 = parseFloat(document.getElementById("y1").value);
     var z1 = parseFloat(document.getElementById("z1").value);
@@ -154,7 +153,7 @@
     // Abstand berechnen
     var distance = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2) + Math.pow(z2 - z1, 2));
 
-    // Ergebnis anzeigen
+    // Ergebnis 
     setTimeout(function () {
         resultDiv = document.getElementById("t");
         t.innerHTML = "Der Abstand zwischen den beiden Punkten beträgt: " + distance.toFixed(2);

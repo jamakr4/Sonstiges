@@ -162,11 +162,10 @@
             var button = distanceForm.querySelector(".AnimationButton");
             var resultDiv = document.getElementById("r");
 
-            // Button deaktivieren und Ladeanimation anzeigen
+            
             button.disabled = true;
             button.classList.add('AnimationButton--loading');
 
-            // Werte aus den Formularelementen abrufen
             var RX = parseFloat(document.getElementById("rx").value);
             var RY = parseFloat(document.getElementById("ry").value);
             var RZ = parseFloat(document.getElementById("rz").value);
@@ -193,7 +192,7 @@
             var denominator = Math.sqrt(normalX * normalX + normalY * normalY + normalZ * normalZ);
             var distance = numerator / denominator;
 
-            // Ergebnis anzeigen
+            // Ergebnis 
             setTimeout(function () {
                 resultDiv.innerHTML = "Der Abstand zwischen dem Punkt und der Ebene beträgt: " + distance.toFixed(2);
                 button.disabled = false;
@@ -205,7 +204,7 @@
 
 .tabelle-style1 {
           display: grid;
-          grid-template-columns: 400px 400px; /* Änderung der Spaltenbreite */
+          grid-template-columns: 400px 400px; 
           grid-gap: 10px;
       }
 
@@ -215,7 +214,7 @@
     left: 220px;
     top: 610px;
     width: 150px;
-    font: bold 16px "Quicksand", san-serif; /* Ändere die Schriftgröße */
+    font: bold 16px "Quicksand", san-serif;
     color: #ffffff;
     border: none;
     height:35px;

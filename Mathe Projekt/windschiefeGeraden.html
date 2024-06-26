@@ -164,11 +164,11 @@
             var button = distanceForm.querySelector(".AnimationButton"); 
             var resultDiv = document.getElementById("r");
     
-            // Button deaktivieren und Ladeanimation anzeigen
+            
             button.disabled = true;
             button.classList.add('AnimationButton--loading');
     
-            // Werte aus den Formularelementen abrufen
+            
             var a1 = parseFloat(document.getElementById("a1").value);
             var b1 = parseFloat(document.getElementById("b1").value);
             var c1 = parseFloat(document.getElementById("c1").value);
@@ -209,7 +209,7 @@
             // Abstand berechnen
             var distance = numerator / nLength;
     
-            // Ergebnis anzeigen
+            // Ergebnis 
             setTimeout(function () {
                 resultDiv.innerHTML = "Der Abstand zwischen den windschiefen Geraden beträgt: " + distance.toFixed(2) + " Längeneinheiten";
                 button.disabled = false;

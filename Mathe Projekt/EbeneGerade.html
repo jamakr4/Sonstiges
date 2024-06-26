@@ -141,7 +141,7 @@
             var button = distanceForm.querySelector(".AnimationButton"); 
             var resultDiv = document.getElementById("r");
 
-            // Button deaktivieren und Ladeanimation anzeigen
+           
             button.disabled = true;
             button.classList.add('AnimationButton--loading');
 
@@ -161,7 +161,7 @@
             var denominator = Math.sqrt(normalX * normalX + normalY * normalY + normalZ * normalZ);
             var distance = numerator / denominator;
 
-            // Ergebnis anzeigen
+            // Ergebnis 
             setTimeout(function () {
                 resultDiv.innerHTML = "Der Abstand zwischen der Ebene und der Geraden beträgt: " + distance.toFixed(2);
                 button.disabled = false;
