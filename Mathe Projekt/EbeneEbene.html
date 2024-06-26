@@ -156,10 +156,10 @@
     </main>
 
    
-      <script>
+    <script>
         function calculateDistance() {
             var distanceForm = document.getElementById("distanceForm");
-            var button = distanceForm.querySelector(".AnimationButton"); 
+            var button = distanceForm.querySelector(".AnimationButton");
             var resultDiv = document.getElementById("r");
 
             // Button deaktivieren und Ladeanimation anzeigen
@@ -173,40 +173,34 @@
             var RX1 = parseFloat(document.getElementById("rx1").value);
             var RY1 = parseFloat(document.getElementById("ry1").value);
             var RZ1 = parseFloat(document.getElementById("rz1").value);
-            var X = parseFloat(document.getElementById("x").value);
-            var Y = parseFloat(document.getElementById("y").value);
-            var Z = parseFloat(document.getElementById("z").value);
+            var PX = parseFloat(document.getElementById("x").value);
+            var PY = parseFloat(document.getElementById("y").value);
+            var PZ = parseFloat(document.getElementById("z").value);
             var X1 = parseFloat(document.getElementById("x1").value);
             var Y1 = parseFloat(document.getElementById("y1").value);
             var Z1 = parseFloat(document.getElementById("z1").value);
 
-       
- 
- // Normalenvektor berechnen durch Kreuzprodukt der Richtungsvektoren
-        var normalX = RY * RZ1 - RY1 * RZ;
-        var normalY = RZ * RX1 - RZ1 * RX;
-        var normalZ = RX * RY1 - RX1 * RY;
+            // Normalenvektor berechnen durch Kreuzprodukt der Richtungsvektoren
+            var normalX = RY * RZ1 - RY1 * RZ;
+            var normalY = RZ * RX1 - RZ1 * RX;
+            var normalZ = RX * RY1 - RX1 * RY;
 
-// Hessesche Normalform der Ebene berechnen
-var d = normalX * RX + normalY * RY + normalZ * RZ;
+            // Hessesche Normalform der Ebene berechnen
+            var d = -(normalX * PX + normalY * PY + normalZ * PZ);
 
-// Abstand berechnen
-var numerator = Math.abs(normalX * X1 + normalY * Y1 + normalZ * Z1 - d);
-var denominator = Math.sqrt(normalX * normalX + normalY * normalY + normalZ * normalZ);
-var distance = numerator / denominator;
+            // Abstand berechnen
+            var numerator = Math.abs(normalX * X1 + normalY * Y1 + normalZ * Z1 + d);
+            var denominator = Math.sqrt(normalX * normalX + normalY * normalY + normalZ * normalZ);
+            var distance = numerator / denominator;
 
-// Ergebnis anzeigen
-setTimeout(function () {
-    resultDiv.innerHTML = "Der Abstand zwischen der Ebene und der Geraden beträgt: " + distance.toFixed(2);
-    button.disabled = false;
-    button.classList.remove('AnimationButton--loading'); 
-}, 1000);
-}
-
-
-
-
-</script>
+            // Ergebnis anzeigen
+            setTimeout(function () {
+                resultDiv.innerHTML = "Der Abstand zwischen dem Punkt und der Ebene beträgt: " + distance.toFixed(2);
+                button.disabled = false;
+                button.classList.remove('AnimationButton--loading');
+            }, 1000);
+        }
+    </script>
 <style>
 
 .tabelle-style1 {
