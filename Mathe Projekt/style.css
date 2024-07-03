@@ -43,7 +43,7 @@ margin-right: 2vw;
 
 aside {
   position: fixed;
-  top: 11vw; /* Adjust as needed */
+  top: 11vw; 
   right: 0;
   width: 15vw;
   border: 1px  #000000;
@@ -228,13 +228,12 @@ border: none;
 outline: none;
 border-radius: 2px;
 cursor: pointer;
-font: bold 16px "Quicksand", san-serif; /* Ändere die Schriftgröße */
+font: bold 16px "Quicksand", san-serif; 
 color: #ffffff;
 transition: all 0.2s;
 width: 150px;
- /* Ändere die Breite auf 'auto' */
-margin-right: 100px; /* Zentriere den Button horizontal */
-display: block; /* Ändere die Anzeige auf 'block', damit das 'margin: 0 auto' funktioniert */
+margin-right: 100px; 
+display: block; 
 margin-top: 40px;
 }
 
@@ -276,13 +275,22 @@ to {
 }
 }
 
+.formel{
+
+  position: absolute;
+  left: 55vh;
+  top: 65vh;
+
+}
+
+
 
 
 /* Tabelle */
 
 .tabelle-style {
           display: grid;
-          grid-template-columns: 150px 150px; /* Änderung der Spaltenbreite */
+          grid-template-columns: 150px 150px; 
           grid-gap: 10px;
       }
 
